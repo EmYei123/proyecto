@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'modelos/categoria.dart';
-import 'modelos/tienda.dart';
-import 'modelos/acerca.dart';
+import 'categoria.dart';
+import '/ScreenMenu.dart';
 
-class ScreenMenu extends StatefulWidget {
+class acerca extends StatefulWidget {
   @override
-  State<ScreenMenu> createState() => ScreenMenuState();
+  State<acerca> createState() => acercaState();
 }
 
-class ScreenMenuState extends State<ScreenMenu> {
+class acercaState extends State<acerca> {
   @override
-  late Color myColor;
-  late Size mediaSize;
   Widget build(BuildContext context) {
-    myColor = Theme.of(context).primaryColor;
-    mediaSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Acerca De"),
         backgroundColor: Color.fromARGB(255, 42, 104, 44),
       ),
+
       backgroundColor: Colors.green,
       body: Container(
         child: GridView.builder(
@@ -29,23 +25,10 @@ class ScreenMenuState extends State<ScreenMenu> {
           ),
           itemBuilder: (context, index) {
             return Container(
-              margin: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 104, 44),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: GestureDetector(
-                onTap: () {},
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/images/" + Menu[index].foto,
-                      width: 150,
-                    ),
-                    Text(Menu[index].nombre),
-                  ],
-                ),
+
+              child: Text(
+                "Contenido de la pantalla Acerca De",
+                style: TextStyle(fontSize: 20),
               ),
             );
           },
@@ -86,10 +69,8 @@ class ScreenMenuState extends State<ScreenMenu> {
             ListTile(
               title: Text('Tienda'),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => tienda()));
+                Navigator.pop(context); // Cierra el sidebar
               },
-              //Navigator.pop(context); // Cierra el sidebar
             ),
             ListTile(
               title: Text('Sucursales'),
@@ -100,11 +81,9 @@ class ScreenMenuState extends State<ScreenMenu> {
             ListTile(
               title: Text('Nosotros'),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => acerca()));
+                Navigator.pop(context); // Cierra el sidebar
               },
             ),
-
             // Agrega más opciones según tus necesidades
           ],
         ),
