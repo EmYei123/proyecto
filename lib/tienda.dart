@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'categoria.dart';
+import '/ScreenMenu.dart';
 
 class tienda extends StatefulWidget {
   @override
@@ -71,12 +72,21 @@ class tiendaState extends State<tienda> {
                 color: Color.fromARGB(255, 42, 104, 44),
               ),
               child: Text(
-                'Sidebar Header',
+                'Menu Veterinaria',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),
               ),
+            ),
+            ListTile(
+              title: Text('Home'),
+
+              // Acción al seleccionar la opción 1
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => ScreenMenu()));
+              },
             ),
             ListTile(
               title: Text('Citas'),

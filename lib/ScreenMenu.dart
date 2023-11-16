@@ -55,12 +55,21 @@ class ScreenMenuState extends State<ScreenMenu> {
                 color: Color.fromARGB(255, 42, 104, 44),
               ),
               child: Text(
-                'Sidebar Header',
+                'Menu Veterinaria',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),
               ),
+            ),
+            ListTile(
+              title: Text('Home'),
+
+                // Acción al seleccionar la opción 1
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => ScreenMenu()));
+                },
             ),
             ListTile(
               title: Text('Citas'),
