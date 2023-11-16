@@ -9,7 +9,11 @@ class ScreenMenu extends StatefulWidget {
 
 class ScreenMenuState extends State<ScreenMenu> {
   @override
+  late Color myColor;
+  late Size mediaSize;
   Widget build(BuildContext context) {
+    myColor = Theme.of(context).primaryColor;
+    mediaSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text("MENU"),
@@ -65,11 +69,11 @@ class ScreenMenuState extends State<ScreenMenu> {
             ListTile(
               title: Text('Home'),
 
-                // Acción al seleccionar la opción 1
-                onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => ScreenMenu()));
-                },
+              // Acción al seleccionar la opción 1
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => ScreenMenu()));
+              },
             ),
             ListTile(
               title: Text('Citas'),
@@ -84,9 +88,7 @@ class ScreenMenuState extends State<ScreenMenu> {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (_) => tienda()));
               },
-                //Navigator.pop(context); // Cierra el sidebar
-
-
+              //Navigator.pop(context); // Cierra el sidebar
             ),
             ListTile(
               title: Text('Sucursales'),

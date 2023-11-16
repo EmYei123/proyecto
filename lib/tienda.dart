@@ -46,7 +46,6 @@ class tiendaState extends State<tienda> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-
                         ElevatedButton(
                           onPressed: () {
                             // Acción al hacer clic en el botón de agregar al carrito
