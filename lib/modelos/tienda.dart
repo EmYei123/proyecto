@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
-import 'modelos/categoria.dart';
-import 'modelos/tienda.dart';
-import 'modelos/acerca.dart';
-import 'citas.dart';
+import 'categoria.dart';
+import '/ScreenMenu.dart';
 
-class ScreenMenu extends StatefulWidget {
+class tienda extends StatefulWidget {
   @override
-  State<ScreenMenu> createState() => ScreenMenuState();
+  State<tienda> createState() => tiendaState();
 }
 
-class ScreenMenuState extends State<ScreenMenu> {
+class tiendaState extends State<tienda> {
   @override
-  late Color myColor;
-  late Size mediaSize;
   Widget build(BuildContext context) {
-    myColor = Theme.of(context).primaryColor;
-    mediaSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Tienda"),
         backgroundColor: Color.fromARGB(255, 42, 104, 44),
       ),
       backgroundColor: Colors.green,
@@ -36,7 +30,10 @@ class ScreenMenuState extends State<ScreenMenu> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  // Acción al seleccionar un producto
+                  // Puedes agregar la navegación o acción que desees aquí
+                },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -45,6 +42,19 @@ class ScreenMenuState extends State<ScreenMenu> {
                       width: 150,
                     ),
                     Text(Menu[index].nombre),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Acción al hacer clic en el botón de agregar al carrito
+                            // Puedes agregar la lógica para agregar al carrito aquí
+                          },
+                          child: Text('Agregar al carrito'),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -80,19 +90,15 @@ class ScreenMenuState extends State<ScreenMenu> {
             ListTile(
               title: Text('Citas'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AppointmentScreen()),
-                );
+                // Acción al seleccionar la opción 1
+                Navigator.pop(context); // Cierra el sidebar
               },
             ),
             ListTile(
               title: Text('Tienda'),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => tienda()));
+                Navigator.pop(context); // Cierra el sidebar
               },
-              //Navigator.pop(context); // Cierra el sidebar
             ),
             ListTile(
               title: Text('Sucursales'),
@@ -103,11 +109,9 @@ class ScreenMenuState extends State<ScreenMenu> {
             ListTile(
               title: Text('Nosotros'),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => acerca()));
+                Navigator.pop(context); // Cierra el sidebar
               },
             ),
-
             // Agrega más opciones según tus necesidades
           ],
         ),
