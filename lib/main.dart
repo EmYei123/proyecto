@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/login.dart';
+//import 'package:PROYECTO-1/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Veterinaria',
       theme: ThemeData(primarySwatch: Colors.green),
-      home: Login(),
+    //  home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }

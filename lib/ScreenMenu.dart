@@ -17,30 +17,64 @@ class ScreenMenuState extends State<ScreenMenu> {
       backgroundColor: Colors.green,
       body: Container(
         child: GridView.builder(
-            itemCount: Menu.length,
-            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            itemBuilder: (context, index) {
-              return Container(
-                  margin: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 42, 104, 44),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/" + Menu[index].foto,
-                          width: 150,
-                        ),
-                        Text(Menu[index].nombre,)
-                      ],
+          itemCount: Menu.length,
+          gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 42, 104, 44),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: GestureDetector(
+                onTap: () {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/" + Menu[index].foto,
+                      width: 150,
                     ),
-                  ));
-            }),
+                    Text(Menu[index].nombre),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 42, 104, 44),
+              ),
+              child: Text(
+                'Sidebar Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Opción 1'),
+              onTap: () {
+                Navigator.pop(context); // Cierra el sidebar
+              },
+            ),
+            ListTile(
+              title: Text('Opción 2'),
+              onTap: () {
+                Navigator.pop(context); // Cierra el sidebar
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
