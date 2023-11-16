@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'modelos/categoria.dart';
+import 'modelos/tienda.dart';
 
 class ScreenMenu extends StatefulWidget {
   @override
@@ -62,17 +63,36 @@ class ScreenMenuState extends State<ScreenMenu> {
               ),
             ),
             ListTile(
-              title: Text('Opción 1'),
+              title: Text('Citas'),
+              onTap: () {
+                // Acción al seleccionar la opción 1
+                Navigator.pop(context); // Cierra el sidebar
+              },
+            ),
+            ListTile(
+              title: Text('Tienda'),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => tienda()));
+              },
+                //Navigator.pop(context); // Cierra el sidebar
+
+
+            ),
+            ListTile(
+              title: Text('Sucursales'),
               onTap: () {
                 Navigator.pop(context); // Cierra el sidebar
               },
             ),
             ListTile(
-              title: Text('Opción 2'),
+              title: Text('Nosotros'),
               onTap: () {
                 Navigator.pop(context); // Cierra el sidebar
               },
             ),
+
+            // Agrega más opciones según tus necesidades
           ],
         ),
       ),
