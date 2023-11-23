@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'modelos/categoria.dart';
 import 'modelos/tienda.dart';
 import 'modelos/acerca.dart';
+import 'citas.dart';
 
 class ScreenMenu extends StatefulWidget {
   @override
@@ -79,8 +80,10 @@ class ScreenMenuState extends State<ScreenMenu> {
             ListTile(
               title: Text('Citas'),
               onTap: () {
-                // Acción al seleccionar la opción 1
-                Navigator.pop(context); // Cierra el sidebar
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AppointmentScreen()),
+                );
               },
             ),
             ListTile(

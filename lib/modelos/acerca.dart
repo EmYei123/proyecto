@@ -1,90 +1,54 @@
 import 'package:flutter/material.dart';
-import 'categoria.dart';
-import '/ScreenMenu.dart';
 
-class acerca extends StatefulWidget {
-  @override
-  State<acerca> createState() => acercaState();
-}
-
-class acercaState extends State<acerca> {
+class acerca extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Acerca De"),
-        backgroundColor: Color.fromARGB(255, 42, 104, 44),
+        title: Text('Información de la Veterinaria'),
       ),
-
-      backgroundColor: Colors.green,
-      body: Container(
-        child: GridView.builder(
-          itemCount: Menu.length,
-          gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
-          itemBuilder: (context, index) {
-            return Container(
-
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(height: 20),
+            CircleAvatar(
+              radius: 80,
+              backgroundImage: AssetImage('assets/veterinary_image.jpg'),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Veterinaria XYZ',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Dirección: Calle Principal #123',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Teléfono: (123) 456-7890',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Correo Electrónico: info@veterinariaxyz.com',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                "Contenido de la pantalla Acerca De",
-                style: TextStyle(fontSize: 20),
-              ),
-            );
-          },
-        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 104, 44),
-              ),
-              child: Text(
-                'Menu Veterinaria',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+                'Bienvenido a Veterinaria XYZ. Brindamos atención médica integral para tus mascotas. Nuestro equipo de veterinarios altamente calificados está aquí para ayudarte con las necesidades de salud y bienestar de tus animales.',
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.justify,
               ),
             ),
-            ListTile(
-              title: Text('Home'),
-
-              // Acción al seleccionar la opción 1
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => ScreenMenu()));
-              },
-            ),
-            ListTile(
-              title: Text('Citas'),
-              onTap: () {
-                // Acción al seleccionar la opción 1
-                Navigator.pop(context); // Cierra el sidebar
-              },
-            ),
-            ListTile(
-              title: Text('Tienda'),
-              onTap: () {
-                Navigator.pop(context); // Cierra el sidebar
-              },
-            ),
-            ListTile(
-              title: Text('Sucursales'),
-              onTap: () {
-                Navigator.pop(context); // Cierra el sidebar
-              },
-            ),
-            ListTile(
-              title: Text('Nosotros'),
-              onTap: () {
-                Navigator.pop(context); // Cierra el sidebar
-              },
-            ),
-            // Agrega más opciones según tus necesidades
+            SizedBox(height: 20),
           ],
         ),
       ),
